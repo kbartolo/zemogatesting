@@ -1,0 +1,32 @@
+.wrappercard {
+  display: flex;
+  width: 100%;
+  &__list {
+    flex-direction: column;
+  }
+  &__grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__mobile {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      width: 5px !important;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #eee !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #555 !important;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #777 !important;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.home {
+  &__wrapperDropdown {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  h3 {
+    flex: 1;
+    font-weight: 300;
+    font-size: 1.7em;
+  }
+}
