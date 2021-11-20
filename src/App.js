@@ -1,15 +1,12 @@
 import React, { useEffect } from "react"
 import Home from "./screens/Home"
-import data from "./assets/data.json"
+import { useVoteContext } from "context/VoteContext"
 
 function App() {
-  const initialize = () => {
-    localStorage.setItem("characters", JSON.stringify(data))
-  }
-
+  const { getCharacters } = useVoteContext()
   useEffect(() => {
-    initialize()
-  })
+    getCharacters()
+  }, [])
 
   return <Home />
 }

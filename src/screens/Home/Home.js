@@ -34,7 +34,7 @@ const Home = () => {
           </div>
         </main>
         <Suggestion></Suggestion>
-        <hr role="separator" />
+        <hr />
       </div>
       <Footer></Footer>
     </>

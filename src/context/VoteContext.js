@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react"
+import data from "assets/data.json"
 
 const VoteContext = React.createContext()
 
@@ -7,9 +8,16 @@ export function useVoteContext() {
 }
 
 export function VoteProvider({ children }) {
-  const [characters, setCharacters] = useState(
-    JSON.parse(localStorage.getItem("characters")) || []
-  )
+  const [characters, setCharacters] = useState([])
+
+  const getCharacters = () => {
+    if (localStorage.getItem("characters")) {
+      setCharacters(JSON.parse(localStorage.getItem("characters")))
+    } else {
+      setCharacters(data)
+      localStorage.setItem("characters", JSON.stringify(data))
+    }
+  }
 
   const getVotes = (vname) =>
     characters.data.filter((item) => item.name === vname)
@@ -31,10 +39,13 @@ export function VoteProvider({ children }) {
 
   const payload = {
     characters,
+    getCharacters,
     getVotes,
     updateVotes,
   }
   return <VoteContext.Provider value={payload}>{children}</VoteContext.Provider>
 }
 
-export default { VoteProvider, useVoteContext }
+const contextAndProvider = { VoteProvider, useVoteContext }
+
+export default contextAndProvider

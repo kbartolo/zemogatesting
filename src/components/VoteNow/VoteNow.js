@@ -26,12 +26,12 @@ const VoteNow = ({ vname, hasVoted, setHasVoted }) => {
     setHasVoted(false)
   }
   return (
-    <div className='voteNow'>
+    <div className="voteNow">
       {!hasVoted && (
         <>
           <Button
             icon={thumbsUp}
-            ariaLabel='thumbs up'
+            ariaLabel="thumbs up"
             onClick={() => {
               setRecentVote(true)
               setBtnSelected("like")
@@ -40,7 +40,7 @@ const VoteNow = ({ vname, hasVoted, setHasVoted }) => {
           />
           <Button
             icon={thumbsDown}
-            ariaLabel='thumbs down'
+            ariaLabel="thumbs down"
             onClick={() => {
               setRecentVote(false)
               setBtnSelected("dislike")
